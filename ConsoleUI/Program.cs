@@ -19,7 +19,7 @@ namespace ConsoleUI
         {
             CarManager carManager = new CarManager(new EfCarDal());
 
-            foreach (var item in carManager.GetCarsByColorId(2))
+            foreach (var item in carManager.GetCarsByColorId(2).Data)
             {
                 Console.WriteLine(item.Description);
             }
@@ -29,7 +29,7 @@ namespace ConsoleUI
         {
             BrandManager brandManager = new BrandManager(new EfBrandDal());
 
-            foreach (var item in brandManager.GetAll())
+            foreach (var item in brandManager.GetAll().Data)
             {
                 Console.WriteLine(item.Name);
             }
@@ -38,7 +38,7 @@ namespace ConsoleUI
             Console.WriteLine("After operation \n\n");
 
 
-            foreach (var item in brandManager.GetAll())
+            foreach (var item in brandManager.GetAll().Data)
             {
                 Console.WriteLine(item.Name);
             }
@@ -47,7 +47,7 @@ namespace ConsoleUI
         {
             ColorManager colorManager = new ColorManager(new EfColorDal());
 
-            foreach (var item in colorManager.GetAll())
+            foreach (var item in colorManager.GetAll().Data)
             {
                 Console.WriteLine(item.Name);
             }
@@ -55,7 +55,7 @@ namespace ConsoleUI
             colorManager.Delete(new Color { Name = "ıııı", Id=4});
             Console.WriteLine("After operation \n\n");
 
-            foreach (var item in colorManager.GetAll())
+            foreach (var item in colorManager.GetAll().Data)
             {
                 Console.WriteLine(item.Name);
             }
@@ -65,7 +65,7 @@ namespace ConsoleUI
         {
             CarManager carManager = new CarManager(new EfCarDal());
 
-            foreach (var item in carManager.GetCarDetails())
+            foreach (var item in carManager.GetCarDetails().Data)
             {
                 Console.WriteLine($"{item.CarName} | {item.ColorName} |{item.BrandName} | {item.DailyPrice}");
             }
