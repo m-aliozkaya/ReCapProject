@@ -9,11 +9,11 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            //CarTest();
+            CarTest();
             //BrandTest();
             //ColorTest();
             //DtoTest();
-            RentalTest();
+            //RentalTest();
             //CustomerTest();
         }
 
