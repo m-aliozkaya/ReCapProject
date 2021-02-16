@@ -12,7 +12,9 @@ namespace ConsoleUI
             //CarTest();
             //BrandTest();
             //ColorTest();
-            DtoTest();
+            //DtoTest();
+            RentalTest();
+            //CustomerTest();
         }
 
         private static void CarTest()
@@ -60,7 +62,6 @@ namespace ConsoleUI
                 Console.WriteLine(item.Name);
             }
         }
-
         private static void DtoTest()
         {
             CarManager carManager = new CarManager(new EfCarDal());
@@ -69,6 +70,24 @@ namespace ConsoleUI
             {
                 Console.WriteLine($"{item.CarName} | {item.ColorName} |{item.BrandName} | {item.DailyPrice}");
             }
+        }
+        private static void RentalTest()
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+
+            Rental rental = new Rental { CarId = 1, CustomerId = 1, RentDate = DateTime.Now, ReturnDate = null };
+
+            rentalManager.Add(rental);
+
+            Console.ReadLine();
+        }
+        private static void CustomerTest()
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+
+            customerManager.Add(new Customer {UserId = 1, CompanyName= "Krai Unlimited"});
+
+            Console.ReadLine();
         }
     }
 }
